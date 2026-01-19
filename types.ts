@@ -34,7 +34,6 @@ export interface ProjectInfo {
   name: string;
   client: string;
   sector: string;
-  country: string;
 }
 
 export type PerformanceClass = 'Forte' | 'Viável' | 'Fraco' | 'Inadequado';

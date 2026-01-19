@@ -35,8 +35,7 @@ const App: React.FC = () => {
   const [projectInfo, setProjectInfo] = useState<ProjectInfo>({
     name: '',
     client: '',
-    sector: '',
-    country: ''
+    sector: ''
   });
 
   const [mafAnswers, setMafAnswers] = useState<AssessmentState>({});
@@ -81,8 +80,7 @@ const App: React.FC = () => {
     csvContent += "Informações do Projeto\n";
     csvContent += `Nome,${projectInfo.name}\n`;
     csvContent += `Cliente,${projectInfo.client}\n`;
-    csvContent += `Setor,${projectInfo.sector}\n`;
-    csvContent += `País Parceiro,${projectInfo.country}\n\n`;
+    csvContent += `Setor,${projectInfo.sector}\n\n`;
     csvContent += "RESULTADOS MAF\n";
     csvContent += `Pontuação Total,${mafScores.percentage.toFixed(1)}%\n`;
     csvContent += `Classificação,${mafScores.classification}\n\n`;
@@ -447,7 +445,6 @@ const App: React.FC = () => {
           <p className="mb-1"><span className="font-bold">Projeto:</span> {projectInfo.name || '---'}</p>
           <p className="mb-1"><span className="font-bold">Cliente:</span> {projectInfo.client || '---'}</p>
           <p className="mb-1"><span className="font-bold">Setor:</span> {projectInfo.sector || '---'}</p>
-          <p className="mb-1"><span className="font-bold">País:</span> {projectInfo.country || '---'}</p>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="bg-slate-50 p-4 rounded border border-slate-200 text-center">
@@ -601,7 +598,7 @@ const App: React.FC = () => {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 print:hidden">
-        <section className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 grid grid-cols-1 md:grid-cols-4 gap-6">
+        <section className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="space-y-1">
             <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-1">
               <Target size={12} /> Nome do Projeto
@@ -636,18 +633,6 @@ const App: React.FC = () => {
               placeholder="Ex: Energia Renovável"
               value={projectInfo.sector}
               onChange={(e) => setProjectInfo({...projectInfo, sector: e.target.value})}
-            />
-          </div>
-          <div className="space-y-1">
-            <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-1">
-              <Globe2 size={12} /> País Parceiro
-            </label>
-            <input 
-              type="text" 
-              className="w-full text-slate-800 font-bold focus:outline-none bg-transparent"
-              placeholder="Ex: Brasil"
-              value={projectInfo.country}
-              onChange={(e) => setProjectInfo({...projectInfo, country: e.target.value})}
             />
           </div>
         </section>
